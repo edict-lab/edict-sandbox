@@ -26,7 +26,8 @@ jobs:
         run: |
           mkdir -p out
           docker pull ghcr.io/${{ github.repository_owner }}/edrp-demo:latest
-          docker run --rm -v "$PWD/out:/out" ghcr.io/${{ github.repository_owner }}/edrp-demo:latest
+          docker run --rm -v "$PWD/out:/out" ghcr.io/${{ github.repository_owner }}/edrp-demo:latest \
+            bash -lc "apt-get update >/dev/null && apt-get install -y python3-venv >/dev/null && ./tools/bootstrap_local.sh && cp -r /app/out/* /out/ && ls -la /out"
           ls -la out
 
       - name: Publish latest output into repo (publicly viewable)
