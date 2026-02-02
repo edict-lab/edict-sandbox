@@ -38,12 +38,18 @@ jobs:
       - name: Publish latest output into repo (publicly viewable)
         run: |
           mkdir -p docs/latest
-          if [ -f out/label.json ]; then
-            cp -f out/label.json docs/latest/label.json
-          else
-            echo "out/label.json not found"
+
+          echo "=== DEBUG: list files under out/ ==="
+          find out -maxdepth 5 -type f -print || true
+
+          LABEL="$(find out -maxdepth 5 -name label.json | head -n 1 || true)"
+          if [ -z "$LABEL" ]; then
+            echo "ERROR: label.json not found anywhere under out/"
             exit 1
           fi
+
+          echo "Found label.json at: $LABEL"
+          cp -f "$LABEL" docs/latest/label.json
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
