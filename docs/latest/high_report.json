@@ -1,0 +1,1926 @@
+{
+  "schema": "EDICT-Conformance-Report",
+  "version": "0.1",
+  "manifest": "/app/conformance/test_manifest_high_v0.1.json",
+  "results": [
+    {
+      "test_id": "RT-24",
+      "category": "INTEG",
+      "title": "producer_signature 변조 → SIGNATURE_INVALID",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a0907f0f0e54fdd13e876061c26a63ac06400300043b658807a85e6e86bf2eaf",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "SIGNATURE_INVALID"
+            ],
+            [
+              "SIGNATURE_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-25",
+      "category": "INTEG",
+      "title": "audit_hash/내용 불일치 → HASH_MISMATCH",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a0907f0f0e54fdd13e876061c26a63ac06400300043b658807a85e6e86bf2eaf",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "HASH_MISMATCH"
+            ],
+            [
+              "HASH_MISMATCH"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-01",
+      "category": "TIME",
+      "title": "TIME: time_anchor_commit 누락",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "1a3e8ffe6a295f6fb49bd33e8be43046b1de3203368757acd69a4e9b45c2685b",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_MISSING"
+            ],
+            [
+              "TIME_ANCHOR_MISSING"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-02",
+      "category": "TIME",
+      "title": "TIME: skew 초과",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "e45cac217042a38cb87a33a745a0d4de3338eac4dd04e59713f21ccd7dfe43b2",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_SKEW_EXCEEDED"
+            ],
+            [
+              "TIME_SKEW_EXCEEDED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-03",
+      "category": "TIME",
+      "title": "TIME: counter rollback",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "0e8fff8c48681d7b2b5bd381ad560724f4c758b05d32d0dde428909eeef40a71",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "a19919a413706a04f6ae6e2004d1afd671a7859c1860d6cb3321c23f5345a99a",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ROLLBACK_SUSPECT",
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ],
+            [
+              "TIME_ROLLBACK_SUSPECT",
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-04",
+      "category": "TIME",
+      "title": "TIME: chain break",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "e4277284eddc566c46ad931c8fefe5013b4b0fa12cf18734b9f9222feff5c5c9",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "1865373a8e75fceb06e17580ecd960cdf578c7207c132d9e33938c366f1f3d5c",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_CHAIN_BREAK",
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ],
+            [
+              "TIME_CHAIN_BREAK",
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-05",
+      "category": "TIME",
+      "title": "TIME: replay",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "03684e7a3e2f5473bc2132001c4fe07b98e18a8a9c70c538e4c20bc2df54e2b2",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "03684e7a3e2f5473bc2132001c4fe07b98e18a8a9c70c538e4c20bc2df54e2b2",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_CHAIN_BREAK",
+              "TIME_REPLAY_SUSPECT",
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ],
+            [
+              "TIME_CHAIN_BREAK",
+              "TIME_REPLAY_SUSPECT",
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-06",
+      "category": "TIME",
+      "title": "TIME: anchor stale",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "dc869025002308d5cb5833fdaed6cc7d9e4cf984fc10a70f43842cc71d78a75c",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_STALE"
+            ],
+            [
+              "TIME_ANCHOR_STALE"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-07",
+      "category": "TIME",
+      "title": "TIME: window overlap forbidden",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "38aa480b4df80a6efb346c52b8753429f03f0adcbf07cb3f422b86e8f6e9f726",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "f84d99c21928887ac1e03c6721f527b3753a218f1beb96b7e7d85d8c958bc5c3",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ],
+            [
+              "TIME_WINDOW_OVERLAP_FORBIDDEN"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-08",
+      "category": "REVOC",
+      "title": "REVOC: dependency_set_commit 누락",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "d9df884d59c34f97e7c5e0f8edcff2e2e0632e5ae6cda596b1c5747b459c6718",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "DEPENDENCY_INCOMPLETE"
+            ],
+            [
+              "DEPENDENCY_INCOMPLETE"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-09",
+      "category": "REVOC",
+      "title": "REVOC: epoch mismatch",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "21dec56cd76e29345d87d293a9e052f8bf00399f1de891d4208ebf5e3569b748",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOCATION_EPOCH_MISMATCH"
+            ],
+            [
+              "REVOCATION_EPOCH_MISMATCH"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-10",
+      "category": "REVOC",
+      "title": "REVOC: revocation HIT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a5331e8866f51228801f33bf39e1c98fed937ccb55a95096b3ee388cbadcd8f5",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOCATION_HIT"
+            ],
+            [
+              "REVOCATION_HIT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-11",
+      "category": "REVOC",
+      "title": "REVOC: registry UNKNOWN",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "1c9b7166096e21ef6632c0dc583328c86de2f10d8be14933a53cf6caa5492c70",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOCATION_REGISTRY_UNKNOWN"
+            ],
+            [
+              "REVOCATION_REGISTRY_UNKNOWN"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-12",
+      "category": "REVOC",
+      "title": "REVOC: snapshot stale",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "48b6850c34c8473ef47a078b04c1d8d90bf7554598d7389bd2a3ec02352d678d",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOCATION_SNAPSHOT_STALE"
+            ],
+            [
+              "REVOCATION_SNAPSHOT_STALE"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-13",
+      "category": "REVOC",
+      "title": "REVOC: key revoked HIT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "10fe6add72f1e5228c929e66c11832f995571f2e188cadb68d70f9ef25f3e66c",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOCATION_HIT"
+            ],
+            [
+              "REVOCATION_HIT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-20",
+      "category": "CAL",
+      "title": "CAL: calibration_commit 누락",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "0ff3ddf693aa0c44d9c5487acdafe526824c62ee94ec9bdd12efa7850b46712a",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CALIBRATION_MISSING"
+            ],
+            [
+              "CALIBRATION_MISSING"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-21",
+      "category": "CAL",
+      "title": "CAL: calibration expired",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "4563baed19be49581244be7b7095371f2aa6c467fa8d66656d154cd76c9aaa96",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CALIBRATION_EXPIRED"
+            ],
+            [
+              "CALIBRATION_EXPIRED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-22",
+      "category": "CAL",
+      "title": "CAL: drift_state=DRIFT인데 T/F 단정",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "1e7e8dbdb389268471edf996058a128f761e718ad3b26b622011ea3d7b2036ec",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "DRIFT_DETECTED"
+            ],
+            [
+              "DRIFT_DETECTED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-23",
+      "category": "CAL",
+      "title": "CAL: uncertainty budget mismatch",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2dd24cb3b244ae514cf65a9044e5ef78ab7afd8b6994c1aa97994ad85a10d98b",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "UNCERTAINTY_BUDGET_MISMATCH"
+            ],
+            [
+              "UNCERTAINTY_BUDGET_MISMATCH"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-26",
+      "category": "POLICY",
+      "title": "POLICY: 인간 승인 없이 정책 적용",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "4e4fefd903acea4b8a413fa5c24c0c00e4cc5333546582cf8c1267c22d5f67a3",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "POLICY_UNAPPROVED"
+            ],
+            [
+              "POLICY_UNAPPROVED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-14",
+      "category": "BUNDLE",
+      "title": "BUNDLE: evidence_refs 1개 누락",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "1f69c27c08fb275da4b29ee8ae69ca1a5fb7b548a7c4ffdbf2ef249b8539e9d7",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_RULE_VIOLATION"
+            ],
+            [
+              "BUNDLE_RULE_VIOLATION"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-15",
+      "category": "BUNDLE",
+      "title": "BUNDLE: 독립성 위반",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a474ed38483cb625fee25e039aac659c9e98458e616b1cee71eda08c27d6aa25",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "a474ed38483cb625fee25e039aac659c9e98458e616b1cee71eda08c27d6aa25",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "00b0a273dd2cf966c3e6252e7f1041568ae528e69b0c62f24d6d13c8e41bd3f6",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_RULE_VIOLATION"
+            ],
+            [
+              "BUNDLE_RULE_VIOLATION"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-16",
+      "category": "BUNDLE",
+      "title": "BUNDLE: 하위 Receipt 무효 포함",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "SIGNATURE_INVALID"
+            ],
+            [
+              "SIGNATURE_INVALID"
+            ]
+          ]
+        },
+        {
+          "audit_hash": "6fb8ec32990ad2bdac1708204ff4a4fd73db60945b0a5e000038ba0c993b195d",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_EVIDENCE_INVALID"
+            ],
+            [
+              "BUNDLE_EVIDENCE_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-17",
+      "category": "BUNDLE",
+      "title": "BUNDLE: claim_A_id 불일치",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "9483a283e553ed727cba3a0c572926b379f29118203e73882f6050a148d8d899",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "bd04a817d3643cf5b95432b72cfbdff0d2eb530349f1e16a2f118b372085414e",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "d1e70e6247c67990f730325c0dbe0337978e63fde4e37d7b088e61fe280438f1",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_CLAIM_MISMATCH"
+            ],
+            [
+              "BUNDLE_CLAIM_MISMATCH"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-18",
+      "category": "BUNDLE",
+      "title": "BUNDLE: T/F 충돌",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "c950d91d762cbd443eb52d71c1092a15bd0e751683f2d42a4969d173cfa30775",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "d1f52b3b68cab3fddeef7f160d8663f2467310acbdbd521cd8c747961b24d3d8",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_CONFLICT"
+            ],
+            [
+              "BUNDLE_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-19",
+      "category": "BUNDLE",
+      "title": "BUNDLE: 충돌인데 T/F 단정 시도",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "c950d91d762cbd443eb52d71c1092a15bd0e751683f2d42a4969d173cfa30775",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "66f41042bb258cb1d2db15e18cffb3e1525901c182b3b829a54fa2948fde1e43",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_CONFLICT"
+            ],
+            [
+              "BUNDLE_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-27",
+      "category": "VERIFIER",
+      "title": "High: 2-of-2 required but only 1 verifier present → QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a0907f0f0e54fdd13e876061c26a63ac06400300043b658807a85e6e86bf2eaf",
+          "verifier_status": [
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            []
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-28",
+      "category": "VERIFIER",
+      "title": "High: verifier conflict (one verifier cannot validate producer sig) → CONFLICT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a0907f0f0e54fdd13e876061c26a63ac06400300043b658807a85e6e86bf2eaf",
+          "verifier_status": [
+            "PASS",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [],
+            [
+              "SIGNATURE_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-29",
+      "category": "TIME",
+      "title": "High: time anchor conflict flag → TIME_ANCHOR_CONFLICT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "5d2ddc448baf71d9e6d0fb8f6f2518de7c6c59f6230a92496d9f0b7da5d1232e",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_CONFLICT"
+            ],
+            [
+              "TIME_ANCHOR_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-30",
+      "category": "TIME",
+      "title": "High: signed time anchor quorum not met (1-of-2) → QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "8ec33256d0aa30a6987a39c45a77139e56963f6e0bcd7275b08bda0e79854c94",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_QUORUM_NOT_MET"
+            ],
+            [
+              "TIME_ANCHOR_QUORUM_NOT_MET"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-31",
+      "category": "TIME",
+      "title": "High: signed time anchor signature invalid → SIG_INVALID + QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "bd5ec9a45824276fb4d562a8b7d9d7a7e0f14b2d400d0b928df36e53e4b59590",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_QUORUM_NOT_MET",
+              "TIME_ANCHOR_SIG_INVALID"
+            ],
+            [
+              "TIME_ANCHOR_QUORUM_NOT_MET",
+              "TIME_ANCHOR_SIG_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-32",
+      "category": "REVOC",
+      "title": "High: signed revocation registry quorum not met (1-of-2) → QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "3e3b992d9a06a82654480dacbd4fe9d3d22e51df56f15974171a9340767fc55a",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOC_REGISTRY_QUORUM_NOT_MET"
+            ],
+            [
+              "REVOC_REGISTRY_QUORUM_NOT_MET"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-33",
+      "category": "REVOC",
+      "title": "High: signed revocation registry signature invalid → SIG_INVALID + QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "46ba48a2e77b07710c02aea157cfe46563a470d360f0042e722696cd36964a3b",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOC_REGISTRY_QUORUM_NOT_MET",
+              "REVOC_REGISTRY_SIG_INVALID"
+            ],
+            [
+              "REVOC_REGISTRY_QUORUM_NOT_MET",
+              "REVOC_REGISTRY_SIG_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-34",
+      "category": "REVOC",
+      "title": "High: signed revocation registry conflict → REVOC_REGISTRY_CONFLICT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "0d036de419ea27ccee35ed8c3084b00b13e4e8f1a944d3f0e97468eed92b8862",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOC_REGISTRY_CONFLICT"
+            ],
+            [
+              "REVOC_REGISTRY_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-35",
+      "category": "CAL",
+      "title": "High: signed calibration evidence quorum not met (1-of-2) → QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "e16a8b5a63618f531b32c4db614d144d0090497592645660137cf0a7ea0497ca",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CAL_EVIDENCE_QUORUM_NOT_MET"
+            ],
+            [
+              "CAL_EVIDENCE_QUORUM_NOT_MET"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-36",
+      "category": "CAL",
+      "title": "High: signed calibration evidence signature invalid → SIG_INVALID + QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "3f5cf412092b63fd8cbf310a7113a39fcc8dde01c07dce2b415324ea42911db5",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CAL_EVIDENCE_QUORUM_NOT_MET",
+              "CAL_EVIDENCE_SIG_INVALID"
+            ],
+            [
+              "CAL_EVIDENCE_QUORUM_NOT_MET",
+              "CAL_EVIDENCE_SIG_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-37",
+      "category": "CAL",
+      "title": "High: signed calibration evidence conflict → CAL_EVIDENCE_CONFLICT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "1004ee0d5c9b1ae7f3708b16cf15e4d4678bf9044b3b71724820c1cdfac8a0ac",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CAL_EVIDENCE_CONFLICT"
+            ],
+            [
+              "CAL_EVIDENCE_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-38",
+      "category": "BUNDLE",
+      "title": "High: signed bundle attestation quorum not met (1-of-2) → QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "4675476a28cae88006910d25c8540c7f596922b2e04ac9e206cfe19adf936e44",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET"
+            ],
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-39",
+      "category": "BUNDLE",
+      "title": "High: signed bundle attestation signature invalid → SIG_INVALID + QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "cf4a89054c08180d64aa156f339e03de2d3abdc6de0d26551ad347d520edb2f5",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET",
+              "BUNDLE_ATTEST_SIG_INVALID"
+            ],
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET",
+              "BUNDLE_ATTEST_SIG_INVALID"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-40",
+      "category": "BUNDLE",
+      "title": "High: signed bundle attestation tamper (statement mismatch) → TAMPER + QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "3c9ccb7cd8ea92f1389daeafb763c0321399ffe596f02d39a30eacc1d85e97bf",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET",
+              "BUNDLE_ATTEST_TAMPER"
+            ],
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET",
+              "BUNDLE_ATTEST_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-41",
+      "category": "TIME",
+      "title": "Phase-3B: TIME snapshot missing → REGISTRY_SNAPSHOT_MISSING + QUORUM_NOT_MET",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "67624e32f930d765fda49d69d1cdd4d0c3374fc2f7203b899ce932cdcb49f86c",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_MISSING",
+              "TIME_ANCHOR_QUORUM_NOT_MET"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_MISSING",
+              "TIME_ANCHOR_QUORUM_NOT_MET"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-42",
+      "category": "TIME",
+      "title": "Phase-3B: TIME snapshot statement tamper → EVIDENCE_TAMPER",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "a657abc35a84d353f30a87de215328188135479c50548763471c3a6aef055af3",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_CONFLICT",
+              "TIME_ANCHOR_EVIDENCE_TAMPER"
+            ],
+            [
+              "TIME_ANCHOR_CONFLICT",
+              "TIME_ANCHOR_EVIDENCE_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-43",
+      "category": "TIME",
+      "title": "Phase-3B: TIME snapshot conflict (anchored_end != window.end) → CONFLICT",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "4c838ed7faa2db42c67fc6342f0bfdbb54eb837d2525708ce9fef90bc95425cd",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "TIME_ANCHOR_CONFLICT"
+            ],
+            [
+              "TIME_ANCHOR_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-44",
+      "category": "TIME",
+      "title": "Phase-3B: TIME snapshot ok (ref) → PASS",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "ccfce7dad51cabe0a016f99a49cf5794902c0e047d6aa953f526ff774cbe1f3c",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-45",
+      "category": "REVOC",
+      "title": "Phase-3C: REVOC snapshot missing",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "d4a1d5a6c7249dd44f79517edf77b9a1edb78f830e197f6354083684a3648baa",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_MISSING",
+              "REVOC_REGISTRY_QUORUM_NOT_MET"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_MISSING",
+              "REVOC_REGISTRY_QUORUM_NOT_MET"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-46",
+      "category": "REVOC",
+      "title": "Phase-3C: REVOC snapshot tamper",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "e938914a02e6a420899f1d78a898362c5a40d1fb3f8dc9ee0a8ada914511f046",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOC_REGISTRY_CONFLICT",
+              "REVOC_REGISTRY_EVIDENCE_TAMPER"
+            ],
+            [
+              "REVOC_REGISTRY_CONFLICT",
+              "REVOC_REGISTRY_EVIDENCE_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-47",
+      "category": "REVOC",
+      "title": "Phase-3C: REVOC snapshot conflict",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2a4a2bf5489d003b1134c3c65735c48a04e7ba7ceb1b3123dea924fbefbd74c8",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOC_REGISTRY_CONFLICT"
+            ],
+            [
+              "REVOC_REGISTRY_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-48",
+      "category": "REVOC",
+      "title": "Phase-3C: REVOC snapshot ok",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "152374ba4030ac65f53efbe47665e9c189e07fc3a7cfd7fcfc8e47c96d778bce",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-49",
+      "category": "CAL",
+      "title": "Phase-3C: CAL snapshot missing",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "da93c2dbe529a69c9c14cc8c40435378b86f590ac79855fb30fc1f3258c09079",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CAL_EVIDENCE_QUORUM_NOT_MET",
+              "REGISTRY_SNAPSHOT_MISSING"
+            ],
+            [
+              "CAL_EVIDENCE_QUORUM_NOT_MET",
+              "REGISTRY_SNAPSHOT_MISSING"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-50",
+      "category": "CAL",
+      "title": "Phase-3C: CAL snapshot tamper",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "db12ce41a5829393b93b839e633f597ecdca3bb880a5bf7274430e994f684912",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CAL_EVIDENCE_CONFLICT",
+              "CAL_EVIDENCE_TAMPER"
+            ],
+            [
+              "CAL_EVIDENCE_CONFLICT",
+              "CAL_EVIDENCE_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-51",
+      "category": "CAL",
+      "title": "Phase-3C: CAL snapshot conflict",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "ccb0c70c2be917ac5ae9bfca9dce1e095a5914ae9b6cb9848323c524ca30daa7",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [
+              "CAL_EVIDENCE_CONFLICT"
+            ],
+            [
+              "CAL_EVIDENCE_CONFLICT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-52",
+      "category": "CAL",
+      "title": "Phase-3C: CAL snapshot ok",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "e05d4eff8376a6910b65428fd21fd55a37e33f990e8067103cca75b3d06128ae",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-53",
+      "category": "BUNDLE",
+      "title": "Phase-3C: BUNDLE snapshot missing",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "d0d467fae12b4c157d67e3db3ab02bd270e7177cdb87daf1e31b30b7b10c1ff2",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET",
+              "REGISTRY_SNAPSHOT_MISSING"
+            ],
+            [
+              "BUNDLE_ATTEST_QUORUM_NOT_MET",
+              "REGISTRY_SNAPSHOT_MISSING"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-54",
+      "category": "BUNDLE",
+      "title": "Phase-3C: BUNDLE snapshot tamper",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "3fd12cabf39d1d637e5e7d1709c795a7575aba49aab28a685e9d55c5a4df945e",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_ATTEST_TAMPER"
+            ],
+            [
+              "BUNDLE_ATTEST_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-55",
+      "category": "BUNDLE",
+      "title": "Phase-3C: BUNDLE snapshot mismatch",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "277949602d14f6fc5c5d88e777b00fb52a2376f49059a75e67d70adb97d37fef",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "BUNDLE_ATTEST_TAMPER"
+            ],
+            [
+              "BUNDLE_ATTEST_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-56",
+      "category": "BUNDLE",
+      "title": "Phase-3C: BUNDLE snapshot ok",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "3c9aee85bc9eae2937b6bd8223818f4175e6c786a3d57e050bdba37c2b8cf9f0",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-57",
+      "category": "REGISTRY",
+      "title": "Phase-3D: snapshot revoked by revocation-list → REVOKED",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "dbfdbb3e8b96d25b5e5da7df09d729a634df9ee0648bed4ebdb9a017a3a70630",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-58",
+      "category": "REGISTRY",
+      "title": "Phase-3D: revocation-list path missing → LIST_MISSING",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "5aef3595e9b664542b26265eb40b281861335500bad08c73d2cce35618c87618",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_REVOCATION_LIST_MISSING"
+            ],
+            [
+              "REGISTRY_REVOCATION_LIST_MISSING"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-59",
+      "category": "REGISTRY",
+      "title": "Phase-3E: TIME snapshot stale → REGISTRY_SNAPSHOT_STALE",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "881f10835f81dd5be502e0e86cac172c98b20e62bc0790d3e09c6a6aef03bcc6",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_STALE"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_STALE"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-60",
+      "category": "REGISTRY",
+      "title": "Phase-3E: REVOC snapshot epoch mismatch → REVOCATION_EPOCH_MISMATCH",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "7cb089ee948fbf30160746620e9939ac0e181a9f41fb90d7d11fd49714934919",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REVOCATION_EPOCH_MISMATCH"
+            ],
+            [
+              "REVOCATION_EPOCH_MISMATCH"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-61",
+      "category": "REGISTRY",
+      "title": "Phase-3F: REVOC snapshot ok but revoked by revocation-list",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "db59cfbf43bcc344c02ced246d67521bd07385e3195ed00b2391154323f00f27",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-62",
+      "category": "REGISTRY",
+      "title": "Phase-3F: CAL snapshot ok but revoked by revocation-list",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "279908f7732628a43a1263f64aac061291839a90fade157de322260cc0515ac4",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-63",
+      "category": "REGISTRY",
+      "title": "Phase-3F: BUNDLE snapshot ok but revoked by revocation-list",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "2629fcd697e5f861114a2168d59568af930f5d98590f61dd0dfec3dba7bf394b",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "942ac99c26d8ca34e3799f825a9858793a35f61ea1977bcc2e30705fc167347f",
+          "verifier_status": [
+            "PASS",
+            "PASS"
+          ],
+          "verifier_reason_codes": [
+            [],
+            []
+          ]
+        },
+        {
+          "audit_hash": "8c8a3eca587092546bbfe38717954fc2db45f9efd348ff8051776c98292458e7",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ],
+            [
+              "REGISTRY_SNAPSHOT_REVOKED"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-64",
+      "category": "REGISTRY",
+      "title": "Phase-3F: revocation-list tamper should fail verification",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "dff38979da696ceae9a8f0050a03f0ee9fe884295a44df89e4c3628fe3cc9f30",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_REVOCATION_LIST_TAMPER"
+            ],
+            [
+              "REGISTRY_REVOCATION_LIST_TAMPER"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-65",
+      "category": "REGISTRY_REF",
+      "title": "Phase-5B: registry repo missing",
+      "PASS": true,
+      "trace": [
+        {
+          "audit_hash": "fa6018c9043da0ac915731a027da4f101c3d1acdc0ea08b8518ee29bd198bf66",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_REPO_MISSING"
+            ],
+            [
+              "REGISTRY_REPO_MISSING"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "test_id": "RT-66",
+      "category": "REGISTRY_REF",
+      "title": "Phase-5B: registry commit mismatch",
+      "PASS": false,
+      "trace": [
+        {
+          "audit_hash": "8f4bcffb8d347799fb74751a2317fa9e9df82e306056d08ec03940ef441ec301",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_REPO_MISSING"
+            ],
+            [
+              "REGISTRY_REPO_MISSING"
+            ]
+          ]
+        },
+        {
+          "error": "RT-66 reasons: missing ['REGISTRY_COMMIT_MISMATCH']; got=['REGISTRY_REPO_MISSING', 'VERIFIER_QUORUM_NOT_MET']"
+        }
+      ]
+    },
+    {
+      "test_id": "RT-67",
+      "category": "REGISTRY_REF",
+      "title": "Phase-5B: registry snapshot sha mismatch",
+      "PASS": false,
+      "trace": [
+        {
+          "audit_hash": "67f513312c2acf3b90413ea2adb228dffa52c87487a573483a1364e1e81dcd64",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_REPO_MISSING"
+            ],
+            [
+              "REGISTRY_REPO_MISSING"
+            ]
+          ]
+        },
+        {
+          "error": "RT-67 reasons: missing ['REGISTRY_SNAPSHOT_SHA_MISMATCH']; got=['REGISTRY_REPO_MISSING', 'VERIFIER_QUORUM_NOT_MET']"
+        }
+      ]
+    },
+    {
+      "test_id": "RT-68",
+      "category": "REGISTRY_REF",
+      "title": "Phase-5B: registry ref ok",
+      "PASS": false,
+      "trace": [
+        {
+          "audit_hash": "aa4c53078a8d065d35f6a91f45b6a8b3e88decb327a59b2c77e4e95117257fce",
+          "verifier_status": [
+            "FAIL",
+            "FAIL"
+          ],
+          "verifier_reason_codes": [
+            [
+              "REGISTRY_REPO_MISSING"
+            ],
+            [
+              "REGISTRY_REPO_MISSING"
+            ]
+          ]
+        },
+        {
+          "error": "RT-68: verifier_status expected PASS got FAIL"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "PASS": 65,
+    "FAIL": 3
+  }
+}
