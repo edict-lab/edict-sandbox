@@ -56,6 +56,9 @@ jobs:
 
           echo "=== docs/latest contents ==="
           find docs/latest -maxdepth 4 -type f -print || true
+          
+          # Generate SHA256SUMS for tamper-evident verification
+          ( cd docs/latest && find . -type f ! -name "SHA256SUMS" -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS )
 
           # 최소 1개라도 파일이 있으면 성공 처리
           test -n "$(find docs/latest -type f -print -quit)"
@@ -71,7 +74,4 @@ jobs:
         with:
           name: demo-out
           path: out
-
-          # Generate SHA256SUMS for tamper-evident verification
-( cd docs/latest && find . -type f ! -name "SHA256SUMS.txt" -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt )
 
