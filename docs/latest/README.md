@@ -15,41 +15,25 @@ It provides audit-ready artifacts and a tamper-evident hash manifest.
 Verify downloaded files using `SHA256SUMS`.
 
 Example (Linux/macOS/WSL):
-Linux / WSL
-
+```bash
 sha256sum -c SHA256SUMS
 
-If you downloaded only some files: sha256sum -c SHA256SUMS --ignore-missing
+If you downloaded only some files:
+sha256sum -c SHA256SUMS --ignore-missing
 
-macOS
-
-shasum -a 256 -c SHA256SUMS
-
-If you downloaded only some files: shasum -a 256 -c SHA256SUMS --ignore-missing
-
-Windows (PowerShell)
-
+# Verify each file listed in SHA256SUMS (skips missing files)
 Get-Content SHA256SUMS | ForEach-Object {
-
-if ($_ -match '^([0-9a-fA-F]{64})\s+\*?(.+)$') {
-
-$expected = $matches[1].ToLower()
-
-$file = $matches[2]
-
-if (Test-Path $file) {
-
-$actual = (Get-FileHash $file -Algorithm SHA256).Hash.ToLower()
-
-if ($actual -ne $expected) { Write-Error "HASH MISMATCH: $file" } else { Write-Host "OK: $file" }
-
+  if ($_ -match '^([0-9a-fA-F]{64})\s+\*?(.+)$') {
+    $expected = $matches[1].ToLower()
+    $file = $matches[2]
+    if (Test-Path $file) {
+      $actual = (Get-FileHash $file -Algorithm SHA256).Hash.ToLower()
+      if ($actual -ne $expected) { Write-Error "HASH MISMATCH: $file" } else { Write-Host "OK: $file" }
+    }
+  }
 }
 
-}
-
-}
-
-Specs / formats
+## Specs / formats
 
 Receipt/Profile draft:
 https://github.com/edict-lab/edict-intake/blob/main/docs/spec/edrp-receipt-v0.1.md
@@ -57,7 +41,7 @@ https://github.com/edict-lab/edict-intake/blob/main/docs/spec/edrp-receipt-v0.1.
 in-toto Statement + DSSE examples:
 https://github.com/edict-lab/edict-intake/tree/main/docs/spec/examples
 
-Note
+## Note
 
 The proprietary decision kernel remains private (paid layers).
 This repo focuses on public formats and verifiable outputs.
