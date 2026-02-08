@@ -1,5 +1,5 @@
 # EDICT Reason Codes — High Extensions v0.1 (Generated)
-- Generated at: `2026-02-07T22:28:13.754697+00:00`
+- Generated at: `2026-02-08T00:56:22.726380+00:00`
 
 ## Codes
 - `BUNDLE_ATTEST_QUORUM_NOT_MET`
