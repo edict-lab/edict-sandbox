@@ -15,7 +15,7 @@ It provides audit-ready artifacts and a tamper-evident hash manifest.
 Verify downloaded files using `SHA256SUMS`.
 
 Example (Linux/macOS/WSL):
-sha256sum -c SHA256SUMS --ignore-missing
+sha256sum -c SHA256SUMS 
 
 If you downloaded only some files:
 sha256sum -c SHA256SUMS --ignore-missing
