@@ -60,11 +60,18 @@ jobs:
           # Ensure at least one file exists
           test -n "$(find docs/latest -type f -print -quit)"
 
+          cat > docs/latest/RUN_INFO.json <<EOF
+          {
+          "generated_at": "$(date -u +%FT%TZ)",
+          "repo": "${GITHUB_REPOSITORY}",
+          "commit": "${GITHUB_SHA}",
+          "run_id": "${GITHUB_RUN_ID}",
+          "run_url": "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          }
+          EOF
+
           # Generate SHA256SUMS for tamper-evident verification (deterministic)
           ( cd docs/latest && find . -type f ! -name "SHA256SUMS" -print | sort | xargs -r sha256sum > SHA256SUMS )
-          
-          # 최소 1개라도 파일이 있으면 성공 처리
-          test -n "$(find docs/latest -type f -print -quit)"
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
