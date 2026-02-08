@@ -15,12 +15,39 @@ It provides audit-ready artifacts and a tamper-evident hash manifest.
 Verify downloaded files using `SHA256SUMS`.
 
 Example (Linux/macOS/WSL):
-```bash
+Linux / WSL
+
 sha256sum -c SHA256SUMS
 
-If you downloaded only some files:
+If you downloaded only some files: sha256sum -c SHA256SUMS --ignore-missing
 
-sha256sum -c SHA256SUMS --ignore-missing
+macOS
+
+shasum -a 256 -c SHA256SUMS
+
+If you downloaded only some files: shasum -a 256 -c SHA256SUMS --ignore-missing
+
+Windows (PowerShell)
+
+Get-Content SHA256SUMS | ForEach-Object {
+
+if ($_ -match '^([0-9a-fA-F]{64})\s+\*?(.+)$') {
+
+$expected = $matches[1].ToLower()
+
+$file = $matches[2]
+
+if (Test-Path $file) {
+
+$actual = (Get-FileHash $file -Algorithm SHA256).Hash.ToLower()
+
+if ($actual -ne $expected) { Write-Error "HASH MISMATCH: $file" } else { Write-Host "OK: $file" }
+
+}
+
+}
+
+}
 
 Specs / formats
 
