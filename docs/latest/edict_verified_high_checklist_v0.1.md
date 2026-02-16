@@ -1,5 +1,5 @@
 # Edict Verified — High Assurance Checklist v0.1 (Generated)
-- Generated at: `2026-02-09T15:49:04.122963+00:00`
+- Generated at: `2026-02-16T15:35:16.440524+00:00`
 
 ## MUST
 - 2-of-2(또는 2-of-3) 독립 Verifier Attestation
