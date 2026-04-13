@@ -1,5 +1,5 @@
 # EDICT Conformance Test Cards — High v0.1 (Generated)
-- Generated at: `2026-04-06T15:40:01.253194+00:00`
+- Generated at: `2026-04-13T16:07:53.557756+00:00`
 - Manifest: `/app/conformance/test_manifest_high_v0.1.json`
 - Test count: **68**
 
